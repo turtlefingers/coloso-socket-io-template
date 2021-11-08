@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "A simple Node app built on fastify, instantly up and running.",
   "main": "server.js",
+  "type": "module",
+  
   "scripts": {
     "start": "node server.js"
   },
@@ -26,6 +28,5 @@
     "node",
     "glitch",
     "express"
-  ],
-  "type": "module"
+  ]
 }
