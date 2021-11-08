@@ -1,12 +1,8 @@
-import express from 'express';
-import { Server } from 'http';
-import socketio from 'socket.io';
-import path from 'path';
-
-const __dirname = path.resolve();
-const app = express();
-const http = Server(app);
-const io = socketio(http);
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var url = require('url');
 
 
 /*=== 원하는 path에 html 파일을 연결 ===*/
