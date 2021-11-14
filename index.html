@@ -21,4 +21,8 @@
   socket.on("message",function(data){
     $("#param").text(data.text);
   });
+  
+  socket.on("hello",function(data){
+    $("#param").text(data.text);
+  });
 </script>

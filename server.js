@@ -24,7 +24,7 @@ io.on('connection', function(socket) {
 
     console.log("user connected");
   
-    socket.emit("hello", {text:"hello"});
+    socket.emit("hello", 1);
 
     let onevent = socket.onevent;
     socket.onevent = function(packet) {
