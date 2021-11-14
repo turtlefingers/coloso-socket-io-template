@@ -9,10 +9,30 @@
     <meta charset="utf-8" />
     <title>Socketio 컨트롤러</title>
     <style>
+      
+      *{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        appearance: none; 
+        -moz-appearance: none; /* Firefox */ 
+        -webkit-appearance: none; /* Safari and Chrome */
+      }
+      
       button{
+        appearance:none;
+        border-radius:0;
         width:100px;
         height:100px;
+        box-shadow:0 4px 10px 2px;
       }
+      
+      button:active{
+        transform:translateY(4px);
+        box-shadow:0 1px 10px 2px;
+      }
+      
     </style>
   </head>
   <body>
@@ -24,11 +44,11 @@
       
           var socket = io();
       
-          $("#btn").mousedown(function(){
+          $("#btn").on("touchstart",function(){
             socket.emit("btn",1);
           });
       
-          $("#btn").mouseup(function(){
+          $("#btn").on("touchend",function(){
             socket.emit("btn",0);
           });
       
