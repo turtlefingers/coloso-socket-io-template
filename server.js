@@ -5,7 +5,9 @@ var io = require('socket.io')(http);
 var url = require('url');
 
 
-/*=== 원하는 path에 html 파일을 연결 ===*/
+console.log("start");
+
+/*=== 원하는 path에 html 파일을 연console.log("start");결 ===*/
 
 app.get('/', function(req, res) {
     let _url = req.url;
