@@ -4,12 +4,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http, { cors: { origin: "*" } });
 var url = require('url');
 
-
-console.log("start");
-
 app.use("/", express.static(__dirname + "/"));
-app.use("/public", express.static(__dirname + "/public"));
-
 
 // 소켓 연결 시
 io.on('connection', function(socket) {
@@ -35,6 +30,7 @@ io.on('connection', function(socket) {
 
     // 모든 이벤트 일괄 적용
     socket.on('*', function(event, data){
+      console.log(event);
       io.emit(event, data);
     });
   

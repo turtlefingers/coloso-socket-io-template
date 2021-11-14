@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <title>Socketio 컨트롤러</title>
+    <style>
+      button{
+        width:100px;
+        height:100px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">
+      버튼
+    </button>
+    
+    <script>
+      
+          var socket = io();
+      
+          $("#btn").mousedown(function(){
+            socket.emit("btn",1);
+          });
+      
+          $("#btn").mouseup(function(){
+            socket.emit("btn",0);
+          });
+      
+    </script>
+  </body>
+</html>
