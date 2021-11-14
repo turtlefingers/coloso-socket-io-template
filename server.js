@@ -45,7 +45,7 @@ io.on('connection', function(socket) {
 
     // 모든 이벤트 일괄 적용
     socket.on('*', function(event, data){
-
+    
     });
 
     /* 테스트 페이지 */
@@ -58,7 +58,15 @@ io.on('connection', function(socket) {
         // Admin 페이지에 메세지를 전달함
         io.emit("message", { text: "서버로 전송된 데이터\n" + text });
     });
+  
+    socket.on('pos', function(data) {
+      io.emit('pos',data);
+    });
 });
+
+function sendTick(){
+  io.emit("tick", 1);
+}
 
 
 /*=== 서버 시작 ===*/
