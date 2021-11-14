@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var io = require('socket.io')(http, { cors: { origin: "*" } });
 var url = require('url');
 
 
@@ -23,6 +23,8 @@ app.use("/public", express.static(__dirname + "/public"));
 io.on('connection', function(socket) {
 
     console.log("user connected");
+  
+    socket.emit("hello", {text:"hello"});
 
     let onevent = socket.onevent;
     socket.onevent = function(packet) {
@@ -54,7 +56,7 @@ io.on('connection', function(socket) {
             text += "["+prop + "] " + data[prop];
         }
         // Admin 페이지에 메세지를 전달함
-        socket.emit("message", { text: "서버로 전송된 데이터\n" + text });
+        io.emit("message", { text: "서버로 전송된 데이터\n" + text });
     });
 });
 
