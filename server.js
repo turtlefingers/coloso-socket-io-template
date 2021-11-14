@@ -7,14 +7,6 @@ var url = require('url');
 
 console.log("start");
 
-/*=== 원하는 path에 html 파일을 연console.log("start");결 ===*/
-
-app.get('/', function(req, res) {
-    let _url = req.url;
-    res.sendFile(__dirname + '/index.html');
-});
-
-
 app.use("/", express.static(__dirname + "/"));
 app.use("/public", express.static(__dirname + "/public"));
 
@@ -23,8 +15,6 @@ app.use("/public", express.static(__dirname + "/public"));
 io.on('connection', function(socket) {
 
     console.log("user connected");
-  
-    socket.emit("hello", 1);
 
     let onevent = socket.onevent;
     socket.onevent = function(packet) {
@@ -45,28 +35,13 @@ io.on('connection', function(socket) {
 
     // 모든 이벤트 일괄 적용
     socket.on('*', function(event, data){
-    
-    });
-
-    /* 테스트 페이지 */
-    socket.on('SendTest', function(data) {
-        let text = "";
-        for(let prop in data){
-            if(text != "") text += ", ";
-            text += "["+prop + "] " + data[prop];
-        }
-        // Admin 페이지에 메세지를 전달함
-        io.emit("message", { text: "서버로 전송된 데이터\n" + text });
+      io.emit(event, data);
     });
   
     socket.on('pos', function(data) {
-      io.emit('pos',data);
+      
     });
 });
-
-function sendTick(){
-  io.emit("tick", 1);
-}
 
 
 /*=== 서버 시작 ===*/
