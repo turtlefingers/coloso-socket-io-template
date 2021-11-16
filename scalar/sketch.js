@@ -7,7 +7,7 @@ function windowResized(){
   resizeCanvas(windowWidth,windowHeight);
 }
 function draw(){
-  background(mouseX/width * 255);
+  background(mouseY/height * 255);
   
   noFill();
   stroke(255);
@@ -15,9 +15,9 @@ function draw(){
 }
 
 function mousePressed(){
-  socket.emit("value", [mouseX/width]);
+  socket.emit("value", [mouseY/height]);
 }
 
 function mouseDragged(){
-  socket.emit("value", [mouseX/width]);
+  socket.emit("value", [mouseY/height]);
 }

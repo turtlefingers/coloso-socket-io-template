@@ -44,7 +44,7 @@ function draw(){
   
   // 사운드 크기
   osc.amp(v1);
-  osc.freq(sin(frameCount*0.1) * 220 + 220);
+  osc.freq(sin(frameCount*0.3) * 220 + 440);
   
 }
 
