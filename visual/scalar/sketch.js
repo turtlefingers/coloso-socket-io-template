@@ -32,15 +32,15 @@ function draw(){
   rect(20,80+move4,30,50);
   
   // 몸
-  ellipse(0,move1,150,150);
+  ellipse(0,move1*0.8,150,150);
   
   // 머리
   ellipse(0,-100 + move1*0.5,50,50);
   
   // 머리
-  ellipse(-50,0 + move4*0.5,50,50);
+  ellipse(-50,0 + move4,30,30);
   
-  ellipse(50,0 + move2*0.5,50,50);
+  ellipse(50,0 + move2,30,30);
   
 }
 
