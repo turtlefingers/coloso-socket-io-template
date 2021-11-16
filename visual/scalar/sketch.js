@@ -4,7 +4,7 @@ let speed = 0.5;
 let theta = 0;
 
 function setup(){
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(windowWidth,windowHeight);  
 }
 
 function windowResized(){
@@ -12,7 +12,7 @@ function windowResized(){
 }
 
 function draw(){
-  theta += v1;
+  theta += v1 * speed;
   let move1 = sin(theta);
   let move2 = sin(theta + PI*0.5);
   let move3 = sin(theta + PI*1)
@@ -23,9 +23,9 @@ function draw(){
   
   
   // 가운데로 중심축 이동
-  translate(width/2, height/2);
+  translate(width/2, v1*height);
   
-  // 배경 검은색 + 반투명
+  // 배경 검은색
   background(0);
   
   // 왼다리
@@ -51,5 +51,5 @@ function draw(){
 socket.on("value",receiveValue);
 
 function receiveValue(value){
-  v1 = value[0] * speed;
+  v1 = value[0];
 }

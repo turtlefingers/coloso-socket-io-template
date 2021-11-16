@@ -1,8 +1,15 @@
 let socket = io();
 let v1 = 0;
 
+// 사운드를 위한 오실레이터
+let osc;
+
 function setup(){
   createCanvas(windowWidth,windowHeight);
+  
+  osc = new p5.TriOsc();
+  osc.amp(0.5);
+  osc.start();
 }
 
 function windowResized(){
@@ -34,6 +41,10 @@ function draw(){
   // 입
   rect(0,20 - v1* 5, 50, 10);
   rect(0,30 + v1*30, 50, 10);
+  
+  // 사운드 크기
+  osc.amp(v1);
+  osc.freq(sin(frameCount*0.1) * 220 + 220);
   
 }
 
