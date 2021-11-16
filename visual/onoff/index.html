@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title>ON/OFF 비쥬얼</title>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!-- p5js 연동 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+    
+    <!-- Socket.io 연동 -->
+    <script src="https://cdn.socket.io/socket.io-2.3.1.js"></script>
+
+    <style>
+      html,body{
+        margin:0;
+        padding:0;
+        overflow:hidden;
+        height: 100%;
+        touch-action: none;
+      }
+      
+      canvas{
+        position:fixed;
+        left:0;
+        top:0;
+      }
+   
+      *{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        appearance: none; 
+        -moz-appearance: none; /* Firefox */ 
+        -webkit-appearance: none; /* Safari and Chrome */
+      }
+
+    </style>
+  </head>
+  <body>
+    <script src="sketch.js"></script>
+  </body>
+</html>

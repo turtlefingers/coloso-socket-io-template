@@ -16,12 +16,6 @@ io.on('connection', function(socket) {
         let args = packet.data || [];
         onevent.call(this, packet); // original call
 
-        // 패킷 데이터가 object 가 아니라 string 으로 들어왔을 시 변환
-        if(packet.data[1] && typeof packet.data[1] == "string"){
-            console.log("packet.data", packet.data);
-            packet.data[1] = JSON.parse(packet.data[1]);
-        }
-
         // 아래 모든이벤트 일괄적용을 위한 코드
         packet.data = ["*"].concat(args);
 
@@ -32,10 +26,6 @@ io.on('connection', function(socket) {
     socket.on('*', function(event, data){
       console.log(event,data);
       io.emit(event, data);
-    });
-  
-    socket.on('pos', function(data) {
-      // console.log
     });
 });
 

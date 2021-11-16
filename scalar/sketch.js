@@ -14,6 +14,10 @@ function draw(){
   circle(mouseX,mouseY,60,60);
 }
 
+function mousePressed(){
+  socket.emit("value", [mouseX/width]);
+}
+
 function mouseDragged(){
   socket.emit("value", [mouseX/width]);
 }

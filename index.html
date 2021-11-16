@@ -7,10 +7,19 @@
 
     <!-- Socket.io 연동 -->
     <script src="https://cdn.socket.io/socket.io-2.3.1.js"></script>
+    
+    <!-- Font : 나눔 고딕 코딩 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <style>html{font-family: 'Nanum Gothic Coding', monospace;}</style>
   </head>
   <body>
     socketio 프로젝트입니다 :)
-    <div id="value"></div>    <script>
+    <div id="value"></div>
+    
+    <!-- 값 확인을 위한 스크립트 -->
+    <script>
       let socket = io();
       socket.on("value", function(data){
         let html = "";
@@ -20,5 +29,9 @@
         document.querySelector("#value").innerHTML = html;
       });
     </script>
+    
+    <div style="margin-top:50px">
+      <a href="/onoff">ON/OFF</a> <a href="/scalar">Scalar</a> <a href="/vector">Vector</a>
+    </div>
   </body>
 </html>

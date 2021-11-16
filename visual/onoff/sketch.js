@@ -1,0 +1,25 @@
+let socket = io();
+
+function setup(){
+  createCanvas(windowWidth,windowHeight);
+}
+
+function windowResized(){
+  resizeCanvas(windowWidth,windowHeight);
+}
+
+function mousePressed(){
+  background(0);
+  socket.emit("value", [1]);
+}
+
+function mouseReleased(){
+  background(255);
+  socket.emit("value", [0]);
+}
+
+socket.on("value",)
+
+function receiveValue(values){
+  
+}
