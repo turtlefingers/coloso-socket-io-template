@@ -1,57 +1,25 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    
-    <link rel="stylesheet" type="text/css" href="style.css">
+  
+    <title>원격 인터랙션 구현하기</title>
     <meta charset="utf-8" />
-    <title>Socketio 컨트롤러</title>
-    <style>
-      
-      *{
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        appearance: none; 
-        -moz-appearance: none; /* Firefox */ 
-        -webkit-appearance: none; /* Safari and Chrome */
-      }
-      
-      button{
-        appearance:none;
-        border-radius:0;
-        width:100px;
-        height:100px;
-        box-shadow:0 4px 10px 2px;
-      }
-      
-      button:active{
-        transform:translateY(4px);
-        box-shadow:0 1px 10px 2px;
-      }
-      
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!-- Socket.io 연동 -->
+    <script src="https://cdn.socket.io/socket.io-2.3.1.js"></script>
   </head>
   <body>
-    <button id="btn">
-      버튼
-    </button>
-    
+    socketio 프로젝트입니다 :)
+    <div id="value">
+    </div>
     <script>
-      
-          var socket = io();
-      
-          $("#btn").on("touchstart",function(){
-            socket.emit("btn",1);
-          });
-      
-          $("#btn").on("touchend",function(){
-            socket.emit("btn",0);
-          });
-      
+      let socket = io();
+      socket.on("value", function(data){
+          
+      });
     </script>
   </body>
 </html>

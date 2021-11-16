@@ -3,15 +3,17 @@ let socket = io();
 function setup(){
   createCanvas(windowWidth,windowHeight);
 }
+
 function windowResized(){
   resizeCanvas(windowWidth,windowHeight);
 }
-function draw(){
-  background(255,0,0);
-  fill(255);
-  circle(mouseX,mouseY,50,50);
+
+function mousePressed(){
+  background(0);
+  socket.emit("value", [1]);
 }
 
-function mouseDragged(){
-  socket.emit("pos", [mouseX/width,mouseY/height]);
+function mouseReleased(){
+  background(255);
+  socket.emit("value", [0]);
 }

@@ -7,11 +7,13 @@ function windowResized(){
   resizeCanvas(windowWidth,windowHeight);
 }
 function draw(){
-  background(255,0,0);
-  fill(255);
-  circle(mouseX,mouseY,50,50);
+  background(mouseX/width * 255);
+  
+  noFill();
+  stroke(255);
+  circle(mouseX,mouseY,60,60);
 }
 
 function mouseDragged(){
-  socket.emit("pos", [mouseX/width,mouseY/height]);
+  socket.emit("value", [mouseX/width]);
 }
