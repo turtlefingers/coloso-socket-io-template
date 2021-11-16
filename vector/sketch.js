@@ -14,5 +14,5 @@ function draw(){
 }
 
 function mouseDragged(){
-  socket.emit("value", [mouseX/width,mouseY/width]);
+  socket.emit("value", [mouseX/width,mouseY/height]);
 }
