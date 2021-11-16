@@ -7,11 +7,8 @@ function windowResized(){
   resizeCanvas(windowWidth,windowHeight);
 }
 function draw(){
-  background(mouseY/height * 255);
-  
-  noFill();
-  stroke(255);
-  circle(mouseX,mouseY,60,60);
+  background(0);
+  rect(0,0,width,mouseY);
 }
 
 function mousePressed(){

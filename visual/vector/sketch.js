@@ -26,15 +26,15 @@ function draw(){
   // 선그리기
   strokeWeight(20)
   line(x,y,px,py);
+  
+  // 이전 좌표 따로 저장
+  px = x;
+  py = y;
 }
 
 socket.on("value",receiveValue);
 
 function receiveValue(value){
-  // 이전 좌표 따로 저장
-  px = x;
-  py = y;
-  
   // 현재 좌표 저장
   x = value[0] * width;
   y = value[1] * height;
