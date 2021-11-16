@@ -8,6 +8,9 @@
     <!-- Socket.io 연동 -->
     <script src="https://cdn.socket.io/socket.io-2.3.1.js"></script>
     
+    <!-- QR 코드 생성 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <!-- Font : 나눔 고딕 코딩 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,8 +33,21 @@
       });
     </script>
     
+    <!-- 컨트롤러 링크 -->
     <div style="margin-top:50px">
       <a href="/onoff">ON/OFF</a> <a href="/scalar">Scalar</a> <a href="/vector">Vector</a>
     </div>
+    <div id="qr-container"style="margin-top:20px"></div>
+    
+    <!-- QR 코드 생성 -->
+    <script>
+      var qrcode = new QRCode("qr-container", {
+          text: location.origin,
+          width: 128,
+          height: 128,
+          colorDark: "#000000",
+          colorLight: "#ffffff"
+      });
+    </script>
   </body>
 </html>
