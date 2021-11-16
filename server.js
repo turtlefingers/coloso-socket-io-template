@@ -30,12 +30,12 @@ io.on('connection', function(socket) {
 
     // 모든 이벤트 일괄 적용
     socket.on('*', function(event, data){
-      console.log(event);
+      console.log(event,data);
       io.emit(event, data);
     });
   
     socket.on('pos', function(data) {
-      
+      // console.log
     });
 });
 

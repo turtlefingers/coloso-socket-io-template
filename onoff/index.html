@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
+    <title>ON/OFF 컨트롤러</title>
+    
     <meta charset="utf-8" />
-    <title>Socketio 컨트롤러</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-    
     <!-- p5js 연동 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
@@ -41,24 +42,6 @@
     </style>
   </head>
   <body>
-    <script>
-      let socket = io();
-      
-      function setup(){
-        createCanvas(windowWidth,windowHeight);
-      }
-      function windowResized(){
-        resizeCanvas(windowWidth,windowHeight);
-      }
-      function draw(){
-        background(0);
-        fill(255);
-        circle(mouseX,mouseY,50,50);
-      }
-      
-      function mouseDragged(){
-        socket.emit("pos", [mouseX/width,mouseY/height]);
-      }
-    </script>
+    <script src="sketch.js"></script>
   </body>
 </html>
