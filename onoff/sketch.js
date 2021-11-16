@@ -9,11 +9,11 @@ function windowResized(){
 }
 
 function mousePressed(){
-  background(0);
+  background(255);
   socket.emit("value", [1]);
 }
 
 function mouseReleased(){
-  background(255);
+  background(0);
   socket.emit("value", [0]);
 }
