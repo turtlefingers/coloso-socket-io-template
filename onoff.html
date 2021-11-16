@@ -2,10 +2,6 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    
-    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
     <title>Socketio 컨트롤러</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +15,19 @@
     <script src="https://cdn.socket.io/socket.io-2.3.1.js"></script>
 
     <style>
+      html,body{
+        margin:0;
+        padding:0;
+        overflow:hidden;
+        height: 100%;
+      }
       
+      canvas{
+        position:fixed;
+        left:0;
+        top:0;
+      }
+   
       *{
         -moz-user-select: none;
         -webkit-user-select: none;
@@ -29,39 +37,22 @@
         -moz-appearance: none; /* Firefox */ 
         -webkit-appearance: none; /* Safari and Chrome */
       }
-      
-      button{
-        appearance:none;
-        border-radius:0;
-        width:100px;
-        height:100px;
-        box-shadow:0 4px 10px 2px;
-      }
-      
-      button:active{
-        transform:translateY(4px);
-        box-shadow:0 1px 10px 2px;
-      }
-      
+
     </style>
   </head>
   <body>
-    <button id="btn">
-      버튼
-    </button>
-    
     <script>
-      
-          var socket = io();
-      
-          $("#btn").on("touchstart",function(){
-            socket.emit("btn",1);
-          });
-      
-          $("#btn").on("touchend",function(){
-            socket.emit("btn",0);
-          });
-      
+      function setup(){
+        createCanvas(windowWidth,windowHeight);
+      }
+      function windowResized(){
+        resizeCanvas(windowWidth,windowHeight);
+      }
+      function draw(){
+        background(0);
+        fill(255);
+        circle(mouseX,mouseY,50,50);
+      }
     </script>
   </body>
 </html>
