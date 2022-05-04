@@ -26,7 +26,7 @@ function draw(){
   translate(width/2, v1*height);
   
   // 배경 검은색
-  background(0);
+  background(255);
   
   // 왼다리
   rect(-20,80+move2*30,30,50);
