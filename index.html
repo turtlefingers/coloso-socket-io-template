@@ -1,53 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>원격 인터랙션 구현하기</title>
+    
+    <title>Controller</title>
+    
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
+    <!-- p5js 연동 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+    
     <!-- Socket.io 연동 -->
     <script src="https://cdn.socket.io/socket.io-2.3.1.js"></script>
-    
-    <!-- QR 코드 생성 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-    <!-- Font : 나눔 고딕 코딩 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-    <style>html{font-family: 'Nanum Gothic Coding', monospace;}</style>
+
+    <style>
+      html,body{
+        margin:0;
+        padding:0;
+        overflow:hidden;
+        height: 100%;
+        touch-action: none;
+      }
+      
+      canvas{
+        position:fixed;
+        left:0;
+        top:0;
+      }
+   
+      *{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        appearance: none; 
+        -moz-appearance: none; /* Firefox */ 
+        -webkit-appearance: none; /* Safari and Chrome */
+      }
+
+    </style>
   </head>
   <body>
-    socketio 프로젝트입니다 :)
-    <div id="value"></div>
-    
-    <!-- 값 확인을 위한 스크립트 -->
-    <script>
-      let socket = io();
-      socket.on("value", function(data){
-        let html = "";
-        for(let i=0; i<data.length; i++){
-          html += "<div>"+ i +" : "+data[i]+"</div>";
-        }
-        document.querySelector("#value").innerHTML = html;
-      });
-    </script>
-    
-    <!-- 컨트롤러 링크 -->
-    <div style="margin-top:50px">
-      <a href="/onoff">ON/OFF</a> <a href="/scalar">Scalar</a> <a href="/vector">Vector</a>
-    </div>
-    <div id="qr-container"style="margin-top:20px"></div>
-    
-    <!-- QR 코드 생성 -->
-    <script>
-      var qrcode = new QRCode("qr-container", {
-          text: location.origin,
-          width: 128,
-          height: 128,
-          colorDark: "#000000",
-          colorLight: "#ffffff"
-      });
-    </script>
+    <script src="sketch.js"></script>
   </body>
 </html>
