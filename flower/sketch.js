@@ -72,7 +72,7 @@ function receiveValue(value){
   v1 = value[0];
   if(v1 == 1){
     targetH = targetH + 30;
-    if(targetH > 200){
+    if(targetH>200){
       targetH = 0;
     }
   }
