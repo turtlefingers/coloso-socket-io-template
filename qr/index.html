@@ -19,7 +19,6 @@
     
   </head>
   <body>
-    socketio 프로젝트입니다 :)
     <div id="value"></div>
     
     <!-- 값 확인을 위한 스크립트 -->
@@ -28,7 +27,7 @@
       socket.on("value", function(data){
         let html = "";
         for(let i=0; i<data.length; i++){
-          html += "<div>"+ i +" : "+data[i]+"</div>";
+          html += "<div>value["+ i +"] : "+data[i]+"</div>";
         }
         document.querySelector("#value").innerHTML = html;
       });
